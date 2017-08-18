@@ -30,4 +30,11 @@ describe("Postnet", function(){
 
         expect(barcode).to.equal('|:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|');
     });
+
+    it("should calculate check digit correctly", function(){
+        var postcode = '450561234';
+        var barcode = postcode2barcode(postcode);
+
+        expect(barcode).to.equal('|:|::|:|:|:||::::|:|::||:::::||::|:|::||::|::|||:::|');
+    });
 });
