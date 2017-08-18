@@ -23,4 +23,11 @@ describe("Postnet", function(){
 
         expect(barcode).to.equal('|:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|');
     });
+
+    it("should convert 10-digit postcode to barcode", function(){
+        var postcode = '12345-6789';
+        var barcode = postcode2barcode(postcode);
+
+        expect(barcode).to.equal('|:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|');
+    });
 });
