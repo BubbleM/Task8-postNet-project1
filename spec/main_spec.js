@@ -44,4 +44,11 @@ describe("Postnet", function(){
 
         expect(barcode).to.equal('95713');
     });
+
+    it("should convert barcode to 10-digit postcode", function(){
+        var postcode = '|:::||::|:|::||::|::|:|:|::||::|:::||::|:|:|:::|:|:|';
+        var barcode = barcode2postcode(postcode);
+
+        expect(barcode).to.equal('12345-6789');
+    });
 });
