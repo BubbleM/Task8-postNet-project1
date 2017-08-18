@@ -6,7 +6,7 @@ var sinonChai = require("sinon-chai");
 var expect = chai.expect;
 chai.use(sinonChai);
 
-var postcode2barcode = require("../lib/main.js");
+var {postcode2barcode, barcode2postcode} = require("../lib/main.js");
 
 describe("Postnet", function(){
 
@@ -36,5 +36,12 @@ describe("Postnet", function(){
         var barcode = postcode2barcode(postcode);
 
         expect(barcode).to.equal('|:|::|:|:|:||::::|:|::||:::::||::|:|::||::|::|||:::|');
+    });
+
+    it("should convert barcode to 5-digit postcode", function(){
+        var postcode = '||:|:::|:|:|:::|:::||::||::|:|:|';
+        var barcode = barcode2postcode(postcode);
+
+        expect(barcode).to.equal('95713');
     });
 });
