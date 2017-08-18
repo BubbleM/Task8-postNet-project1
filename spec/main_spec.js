@@ -6,26 +6,15 @@ var sinonChai = require("sinon-chai");
 var expect = chai.expect;
 chai.use(sinonChai);
 
-var main = require("../lib/main.js");
+var postcode2barcode = require("../lib/main.js");
 
+describe("Postnet", function(){
 
-describe("测试描述", function(){
-    sinon.spy(console, 'log');
-
-    it("测试用例1", function(){
-
-        var result = main();
-        var expect_string = '';
+    it("should convert postcode to barcode", function(){
+        var postcode = '95713';
+        var barcode = postcode2barcode(postcode);
         
-        expect(expect_string).to.equal(result);
+        expect(barcode).to.equal('||:|:::|:|:|:::|:::||::||::|:|:|');
     });
 
-    it("测试用例2", function(){
-
-        main();
-        var result = _.flatten(console.log.args).join("\n");
-        var expect_string = '';
-
-        expect(expect_string).to.equal(result);
-    });
 });
